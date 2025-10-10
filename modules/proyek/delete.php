@@ -1,3 +1,4 @@
 <?php
-// TODO: handle project deletion logic.
+require_once __DIR__ . '/../../includes/auth.php';
 
+// TODO: handle project deletion logic.

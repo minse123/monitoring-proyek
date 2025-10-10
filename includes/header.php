@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-if (!isset($_SESSION['username'])) {
-    header('Location: /login.php');
-    exit;
-}
-
+require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../config/koneksi.php';
 
 function menu_active(array $targets): string
@@ -33,9 +27,8 @@ function menu_collapse_show(array $targets): string
     <title>Sistem Monitoring Proyek</title>
 
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
-    <link href="/assets/sbadmin2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="/assets/sbadmin2/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="/assets/custom/custom.css" rel="stylesheet">
+    <link href="<?= asset_url('vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?= asset_url('css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -43,7 +36,7 @@ function menu_collapse_show(array $targets): string
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('index.php'); ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-hard-hat"></i>
                 </div>
@@ -53,7 +46,7 @@ function menu_collapse_show(array $targets): string
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item <?= menu_active(['index.php']); ?>">
-                <a class="nav-link" href="/index.php">
+                <a class="nav-link" href="<?= base_url('index.php'); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -65,19 +58,19 @@ function menu_collapse_show(array $targets): string
             </div>
 
             <li class="nav-item <?= menu_active(['modules/proyek/index.php', 'modules/proyek/create.php', 'modules/proyek/edit.php']); ?>">
-                <a class="nav-link" href="/modules/proyek/index.php">
+                <a class="nav-link" href="<?= base_url('modules/proyek/index.php'); ?>">
                     <i class="fas fa-fw fa-project-diagram"></i>
                     <span>Data Proyek</span></a>
             </li>
 
             <li class="nav-item <?= menu_active(['modules/pekerja/index.php', 'modules/pekerja/create.php', 'modules/pekerja/edit.php']); ?>">
-                <a class="nav-link" href="/modules/pekerja/index.php">
+                <a class="nav-link" href="<?= base_url('modules/pekerja/index.php'); ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Data Pekerja</span></a>
             </li>
 
             <li class="nav-item <?= menu_active(['modules/pekerjaan/index.php', 'modules/progress/index.php']); ?>">
-                <a class="nav-link" href="/modules/pekerjaan/index.php">
+                <a class="nav-link" href="<?= base_url('modules/pekerjaan/index.php'); ?>">
                     <i class="fas fa-fw fa-calendar-alt"></i>
                     <span>Jadwal &amp; Progress</span></a>
             </li>
@@ -108,11 +101,11 @@ function menu_collapse_show(array $targets): string
                     'reports/laporan_evaluasi.php'
                 ]); ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/reports/laporan_proyek.php">Laporan Proyek</a>
-                        <a class="collapse-item" href="/reports/laporan_jadwal.php">Laporan Jadwal</a>
-                        <a class="collapse-item" href="/reports/laporan_kinerja.php">Laporan Kinerja</a>
-                        <a class="collapse-item" href="/reports/laporan_progress.php">Laporan Progress</a>
-                        <a class="collapse-item" href="/reports/laporan_evaluasi.php">Laporan Evaluasi</a>
+                        <a class="collapse-item" href="<?= base_url('reports/laporan_proyek.php'); ?>">Laporan Proyek</a>
+                        <a class="collapse-item" href="<?= base_url('reports/laporan_jadwal.php'); ?>">Laporan Jadwal</a>
+                        <a class="collapse-item" href="<?= base_url('reports/laporan_kinerja.php'); ?>">Laporan Kinerja</a>
+                        <a class="collapse-item" href="<?= base_url('reports/laporan_progress.php'); ?>">Laporan Progress</a>
+                        <a class="collapse-item" href="<?= base_url('reports/laporan_evaluasi.php'); ?>">Laporan Evaluasi</a>
                     </div>
                 </div>
             </li>
@@ -147,6 +140,13 @@ function menu_collapse_show(array $targets): string
 
                     <ul class="navbar-nav ml-auto">
 
+                        <li class="nav-item d-flex align-items-center">
+                            <a class="nav-link <?= menu_active(['index.php']); ?>" href="<?= base_url('index.php'); ?>">
+                                <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Home
+                            </a>
+                        </li>
+
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -176,7 +176,7 @@ function menu_collapse_show(array $targets): string
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <li class="nav-item d-flex align-items-center">
-                            <a class="nav-link" href="/logout.php">
+                            <a class="nav-link" href="<?= base_url('logout.php'); ?>">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -188,7 +188,7 @@ function menu_collapse_show(array $targets): string
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     <?= isset($_SESSION['nama']) ? htmlspecialchars($_SESSION['nama']) : 'Admin'; ?>
                                 </span>
-                                <img class="img-profile rounded-circle" src="/assets/sbadmin2/img/undraw_profile.svg" alt="User">
+                                <img class="img-profile rounded-circle" src="<?= asset_url('img/undraw_posting_photo.svg'); ?>" alt="User">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -200,7 +200,7 @@ function menu_collapse_show(array $targets): string
                                     Pengaturan
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout.php">
+                                <a class="dropdown-item" href="<?= base_url('logout.php'); ?>">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Keluar
                                 </a>

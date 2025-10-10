@@ -1,3 +1,4 @@
 <?php
-// TODO: generate job schedule report.
+require_once __DIR__ . '/../includes/auth.php';
 
+// TODO: generate job schedule report.

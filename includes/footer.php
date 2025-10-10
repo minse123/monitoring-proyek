@@ -28,17 +28,16 @@
             <div class="modal-body">Pilih "Keluar" jika Anda siap mengakhiri sesi ini.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                <a class="btn btn-primary" href="/logout.php">Keluar</a>
+                <a class="btn btn-primary" href="<?= base_url('logout.php'); ?>">Keluar</a>
             </div>
         </div>
     </div>
 </div>
 
-<script src="/assets/sbadmin2/vendor/jquery/jquery.min.js"></script>
-<script src="/assets/sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/sbadmin2/vendor/jquery-easing/jquery.easing.min.js"></script>
-<script src="/assets/sbadmin2/js/sb-admin-2.min.js"></script>
-<script src="/assets/custom/custom.js"></script>
+<script src="<?= asset_url('vendor/jquery/jquery.min.js'); ?>"></script>
+<script src="<?= asset_url('vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+<script src="<?= asset_url('vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
+<script src="<?= asset_url('js/sb-admin-2.min.js'); ?>"></script>
 
 </body>
 

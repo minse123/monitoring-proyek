@@ -1,3 +1,4 @@
 <?php
-// TODO: list job schedules.
+require_once __DIR__ . '/../../includes/auth.php';
 
+// TODO: list job schedules.

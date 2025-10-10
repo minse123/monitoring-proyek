@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../includes/auth.php';
 require_once __DIR__ . '/../includes/header.php';
 
 $projectOptions = [];
@@ -155,7 +156,7 @@ if ($validationErrors === []) {
             </div>
             <div class="form-row">
                 <div class="col-md-2 ml-auto">
-                    <a href="/reports/laporan_progress.php" class="btn btn-light w-100">
+                    <a href="<?= base_url('reports/laporan_progress.php'); ?>" class="btn btn-light w-100">
                         Atur Ulang
                     </a>
                 </div>
@@ -223,7 +224,7 @@ if ($validationErrors === []) {
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var datatableCssPath = '/assets/vendor/datatables/dataTables.bootstrap4.min.css';
+        var datatableCssPath = '<?= asset_url('vendor/datatables/dataTables.bootstrap4.min.css'); ?>';
         if (!document.querySelector('link[href="' + datatableCssPath + '"]')) {
             var link = document.createElement('link');
             link.rel = 'stylesheet';
@@ -248,8 +249,8 @@ if ($validationErrors === []) {
             }
 
             if (!jQuery.fn.DataTable) {
-                loadScript('/assets/vendor/datatables/jquery.dataTables.min.js', function() {
-                    loadScript('/assets/vendor/datatables/dataTables.bootstrap4.min.js', function() {
+                loadScript('<?= asset_url('vendor/datatables/jquery.dataTables.min.js'); ?>', function() {
+                    loadScript('<?= asset_url('vendor/datatables/dataTables.bootstrap4.min.js'); ?>', function() {
                         if (jQuery.fn.DataTable) {
                             jQuery('#progressTable').DataTable({
                                 order: [
