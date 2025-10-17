@@ -164,7 +164,7 @@
                         if (!empty($childItem['route'])) {
                             $childRoutePatterns = array_merge(
                                 $childRoutePatterns,
-                                $getRoutePatterns($childItem['route'])
+                                $getRoutePatterns($childItem['route']),
                             );
                         }
                     }

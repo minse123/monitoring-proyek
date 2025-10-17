@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(RoleSeeder::class);
+        $this->call([
+            RoleSeeder::class,
+            UnitSeeder::class,
+            MaterialSeeder::class,
+        ]);
 
         $roles = Role::pluck('id', 'role_name');
 

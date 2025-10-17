@@ -75,7 +75,7 @@
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-light">
                             <tr>
-                                <th scope="col" style="width: 70px;">#</th>
+                                <th scope="col" style="width: 70px;">No.</th>
                                 <th scope="col">SKU</th>
                                 <th scope="col">Nama Material</th>
                                 <th scope="col">Satuan</th>
@@ -152,7 +152,8 @@
                                     <td colspan="8" class="text-center py-5">
                                         <i class="bi bi-archive text-muted display-5 d-block mb-3"></i>
                                         <p class="mb-1 fw-semibold">Belum ada data material</p>
-                                        <p class="text-muted mb-3">Mulai tambahkan material baru untuk kebutuhan proyek Anda.
+                                        <p class="text-muted mb-3">Mulai tambahkan material baru untuk kebutuhan proyek
+                                            Anda.
                                         </p>
                                         <a href="{{ route('materials.create') }}" class="btn btn-primary">
                                             <i class="bi bi-plus-lg me-2"></i>Tambah Material Pertama
@@ -165,8 +166,7 @@
                 </div>
 
                 @if ($isPaginated ?? false)
-                    <div
-                        class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 pt-4">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 pt-4">
                         <div class="text-muted small">
                             Menampilkan
                             <span class="fw-semibold">{{ $materials->count() }}</span>
@@ -179,7 +179,7 @@
                             @endif
                         </div>
                         <div>
-                            {{ $materials->withQueryString()->links() }}
+                            {{ $materials->withQueryString()->links('pagination::bootstrap-5') }}
                         </div>
                     </div>
                 @endif

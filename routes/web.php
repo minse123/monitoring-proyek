@@ -3,6 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Master\MaterialController;
+use App\Http\Controllers\Master\SupplierController;
+use App\Http\Controllers\Master\UnitController;
+use App\Http\Controllers\Project\ProjectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -38,4 +41,9 @@ Route::middleware('auth')->get('/dashboard', function () {
     });
 })->name('dashboard');
 
-Route::middleware('auth')->resource('materials', MaterialController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('materials', MaterialController::class);
+    Route::resource('suppliers', SupplierController::class);
+    Route::resource('units', UnitController::class);
+    Route::resource('projects', ProjectController::class);
+});
