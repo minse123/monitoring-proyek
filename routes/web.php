@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Master\MaterialController;
 use App\Http\Controllers\Master\SupplierController;
 use App\Http\Controllers\Master\UnitController;
+use App\Http\Controllers\Procurement\MaterialRequestController;
+use App\Http\Controllers\Procurement\PurchaseOrderController;
 use App\Http\Controllers\Project\ProjectController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -46,4 +48,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('suppliers', SupplierController::class);
     Route::resource('units', UnitController::class);
     Route::resource('projects', ProjectController::class);
+    Route::resource('procurement/material-requests', MaterialRequestController::class)
+        ->names('procurement.material-requests');
+    Route::resource('procurement/purchase-orders', PurchaseOrderController::class)
+        ->names('procurement.purchase-orders');
 });

@@ -20,8 +20,8 @@
                 'label' => 'Transaksi',
                 'icon' => 'folder',
                 'children' => [
-                    ['label' => 'Material Request (MR)', 'route' => 'mr.index'],
-                    ['label' => 'Purchase Order (PO)', 'route' => 'po.index'],
+                    ['label' => 'Material Request (MR)', 'route' => 'procurement.material-requests.index'],
+                    ['label' => 'Purchase Order (PO)', 'route' => 'procurement.purchase-orders.index'],
                     ['label' => 'Goods Receipt (GR)', 'route' => 'gr.index'],
                     ['label' => 'Goods Issue (GI)', 'route' => 'gi.index'],
                 ],
@@ -74,8 +74,8 @@
                 'label' => 'Transaksi',
                 'icon' => 'folder',
                 'children' => [
-                    ['label' => 'Material Request (MR)', 'route' => 'mr.index'],
-                    ['label' => 'Purchase Order (PO)', 'route' => 'po.index'],
+                    ['label' => 'Material Request (MR)', 'route' => 'procurement.material-requests.index'],
+                    ['label' => 'Purchase Order (PO)', 'route' => 'procurement.purchase-orders.index'],
                     ['label' => 'Goods Receipt (GR)', 'route' => 'gr.index'],
                     ['label' => 'Goods Issue (GI)', 'route' => 'gi.index'],
                 ],

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Role;
 use App\Models\User;
+use GuzzleHttp\Psr7\PumpStream;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,8 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RoleSeeder::class,
-            UnitSeeder::class,
-            MaterialSeeder::class,
         ]);
 
         $roles = Role::pluck('id', 'role_name');
@@ -54,5 +53,16 @@ class DatabaseSeeder extends Seeder
                 ]
             );
         }
+
+        $this->call([
+            UnitSeeder::class,
+            MaterialSeeder::class,
+            SupplierSeeder::class,
+            ProjectSeeder::class,
+            MaterialRequestSeeder::class,
+            MaterialRequestItemSeeder::class,
+            PurchaseOrderSeeder::class,
+            PurchaseOrderItemSeeder::class,
+        ]);
     }
 }
