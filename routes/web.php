@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Master\MaterialController;
 use App\Http\Controllers\Master\SupplierController;
 use App\Http\Controllers\Master\UnitController;
+use App\Http\Controllers\Procurement\GoodsIssueController;
 use App\Http\Controllers\Procurement\GoodsReceiptController;
 use App\Http\Controllers\Procurement\MaterialRequestController;
 use App\Http\Controllers\Procurement\PurchaseOrderController;
@@ -55,4 +56,6 @@ Route::middleware('auth')->group(function () {
         ->names('procurement.purchase-orders');
     Route::resource('procurement/goods-receipts', GoodsReceiptController::class)
         ->names('procurement.goods-receipts');
+    Route::resource('procurement/goods-issues', GoodsIssueController::class)
+        ->names('procurement.goods-issues');
 });
